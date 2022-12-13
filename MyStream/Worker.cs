@@ -20,13 +20,13 @@ public class Worker : BackgroundService
         //     ["BootstrapServers"] = "localhost:9092"
         // };
         
-        var configuration = new Dictionary<string, dynamic>
-        {
-            ["application.id"] = "Test",
-            ["bootstrap.servers"] = "localhost:9092"
-        };
+        // var configuration = new Dictionary<string, dynamic>
+        // {
+        //     ["application.id"] = "Test",
+        //     ["bootstrap.servers"] = "localhost:9092"
+        // };
         
-        var streamConfig = new StreamConfig(configuration)
+        var streamConfig = new StreamConfig(_options.ConnectionSettings)
         {
             AutoOffsetReset = Confluent.Kafka.AutoOffsetReset.Earliest
         };
